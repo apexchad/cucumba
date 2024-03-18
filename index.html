@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Cucumba</title>
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="./images/favicon.ico"
+      type="image/x-icon"
+    />
+
+    <!-- Include Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Include Custom Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Include Styles -->
+    <link
+      href="./style.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body
+    class="overflow-x-hidden"
+    style="background-color: #222831"
+  >
+    <!-- Navbar -->
+    <nav
+      class="p-6 shadow-2xl flex flex-row justify-between items-center"
+      style="color: #ffd5af"
+    >
+      <img
+        src="./images/logo.png"
+        alt="logo"
+        class="w-8 h-8 md:w-10 md:h-10"
+      />
+      <div class="flex-grow">
+        <ul class="flex space-x-8 justify-center">
+          <li>
+            <a
+              href="#about"
+              class="hover:text-gray-500 font-bold"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="#tokenomics"
+              class="hover:text-gray-500 font-bold"
+              >Tokenomics</a
+            >
+          </li>
+          <li>
+            <a
+              href="#socials"
+              class="hover:text-gray-500 font-bold"
+              >Socials</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hello Section -->
+    <div class="mt-8 mb-4 flex flex-col items-center justify-center text-5xl font-extrabold">
+      <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-sky-500"> CUCUMBA </span>
+    </div>
+
+    <!-- CA Section -->
+    <div class="mt-8 mb-4 flex flex-row items-center justify-center text-white text-sm md:text-xl">
+      <span id="textToCopy">B96XTWoqqHN626RP4Gsa6LthCnDED7e5iz34yTpfyYTs</span>
+      <img
+        src="./images/logo.png"
+        alt="Copy"
+        class="ml-4 w-5 h-5 md:w-6 md:h-6 cursor-pointer"
+        id="copyButton"
+      />
+    </div>
+    <div
+      id="copiedMessage"
+      class="flex items-cemter justify-center text-center text-yellow-400 opacity-0"
+    >
+      CA Copied!
+    </div>
+
+    <div class="w-full h-screen flex flex-col items-center">
+      <!-- Video Container -->
+      <div class="video-container overflow-hidden mt-8 relative">
+        <!-- Cover Image -->
+        <div
+          class="video-cover rounded-xl"
+          onclick="playVideo()"
+        >
+          <img
+            src="./images/playbutton.png"
+            alt="Play"
+            class="play-button w-12 h-12 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 xl:w-48 xl:h-48"
+          />
+        </div>
+        <!-- Video Iframe -->
+        <iframe
+          class="video-iframe rounded-xl"
+          id="ytplayer"
+          type="text/html"
+          src="https://www.youtube.com/embed/0Xa7Dp3-eYA?autoplay=1&controls=0&disablekb=1&fs=0&loop=1&modestbranding=1&playsinline=1&color=white&iv_load_policy=3&enablejsapi=1"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <!-- Sections -->
+      <div
+        id="about"
+        class="text-white text-4xl lg:text-6xl font-bold p-6"
+      >
+        Cool as a Cucumba
+      </div>
+
+      <!-- Tokenomics -->
+      <div
+        id="tokenomics"
+        class="text-white p-8"
+      >
+        <div class="container mx-auto p-2">
+          <div class="flex flex-col md:flex-row items-center justify-center">
+            <div class="flex flex-col items-center justify-center md:w-1/2 p-4 text-center">
+              <p class="text-2xl font-bold mb-4">0% taxes</p>
+              <p class="text-2xl font-bold mb-4">0% team tokens</p>
+              <p class="text-2xl font-bold mb-4">0% marketing wallet bullshit</p>
+              <p class="text-2xl font-bold">100% cucumba</p>
+            </div>
+            <div class="md:w-1/2 p-4 flex justify-center items-center">
+              <img
+                src="./images/bigcucumba.png"
+                alt="Cucumba"
+                class="max-w-full h-auto rounded-lg shadow-lg"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="container mx-auto p-5 mt-12">
+          <div class="flex flex-col md:flex-row items-center justify-center">
+            <div class="md:w-1/2 p-4 flex justify-center items-center">
+              <img
+                src="./images/bigcucumba2.png"
+                alt="Cucumba"
+                class="max-w-full h-auto rounded-lg shadow-lg"
+              />
+            </div>
+            <div class="flex flex-col items-center justify-center md:w-1/2 p-4 text-center">
+              <p class="text-2xl font-bold mb-4">ownership revoked</p>
+              <p class="text-2xl font-bold mb-4">mint authority revoked</p>
+              <p class="text-2xl font-bold mb-4">freeze authority revoked</p>
+              <p class="text-2xl font-bold mb-4">lp burnt</p>
+              <p class="text-2xl font-bold">big cucumba dev</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Socials -->
+      <div
+        id="socials"
+        class="p-6 bg-black w-full"
+      >
+        <div class="flex justify-center items-center space-x-4 mt-8">
+          <!-- Twitter Icon -->
+          <a
+            href="https://twitter.com/yourprofile"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="./images/social-twitter.png"
+              alt="Twitter"
+              class="h-8 w-8 hover:opacity-75"
+            />
+          </a>
+
+          <!-- Telegram Icon -->
+          <a
+            href="https://facebook.com/yourprofile"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="./images/social-telegram.png"
+              alt="Facebook"
+              class="h-8 w-8 hover:opacity-75"
+            />
+          </a>
+
+          <!-- Birdeye Icon -->
+          <a
+            href="https://instagram.com/yourprofile"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="./images/social-birdeye.png"
+              alt="Instagram"
+              class="h-8 w-8 hover:opacity-75"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      function playVideo() {
+        var player = document.getElementById("ytplayer");
+        var cover = document.querySelector(".video-cover");
+        cover.style.display = "none";
+        player.src += "&autoplay=1";
+      }
+    </script>
+
+    <script>
+      document.getElementById("copyButton").onclick = function () {
+        var textToCopy = document.getElementById("textToCopy").innerText;
+
+        navigator.clipboard.writeText(textToCopy).then(
+          function () {
+            var copiedMessage = document.getElementById("copiedMessage");
+            copiedMessage.style.opacity = 1;
+
+            setTimeout(function () {
+              copiedMessage.style.opacity = 0;
+            }, 2000);
+          },
+          function (err) {
+            console.error("Could not copy text: ", err);
+          }
+        );
+      };
+    </script>
+  </body>
+</html>
