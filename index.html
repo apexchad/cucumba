@@ -34,18 +34,20 @@
     class="overflow-x-hidden"
     style="background-color: #222831"
   >
-    <!-- Navbar -->
+    <!-- Navbar --------------------------------------------------------------->
     <nav
       class="p-6 shadow-2xl flex flex-row justify-between items-center"
       style="color: #ffd5af"
     >
-      <img
-        src="./images/logo.png"
-        alt="logo"
-        class="w-8 h-8 md:w-10 md:h-10"
-      />
+      <a href="/">
+        <img
+          src="./images/logo.png"
+          alt="logo"
+          class="w-8 h-8 md:w-10 md:h-10"
+        />
+      </a>
       <div class="flex-grow">
-        <ul class="flex space-x-8 justify-center">
+        <ul class="flex space-x-8 justify-center text-xs sm:text-sm md:text-md lg:text-lg">
           <li>
             <a
               href="#about"
@@ -62,6 +64,13 @@
           </li>
           <li>
             <a
+              href="#cucumbasizer"
+              class="hover:text-gray-500 font-bold"
+              >Cucumba Size</a
+            >
+          </li>
+          <li>
+            <a
               href="#socials"
               class="hover:text-gray-500 font-bold"
               >Socials</a
@@ -71,12 +80,12 @@
       </div>
     </nav>
 
-    <!-- Hello Section -->
+    <!-- Hero --------------------------------------------------------------->
     <div class="mt-8 mb-4 flex flex-col items-center justify-center text-5xl font-extrabold">
       <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-sky-500"> CUCUMBA </span>
     </div>
 
-    <!-- CA Section -->
+    <!-- CA --------------------------------------------------------------->
     <div class="mt-8 mb-4 flex flex-row items-center justify-center text-white text-sm md:text-xl">
       <span id="textToCopy">EoQXGNEKtmpWuBQeW3CcwAGByZEdixXJqNKRdeGgzFUJ</span>
       <img
@@ -93,8 +102,9 @@
       CA Copied!
     </div>
 
-    <div class="w-full h-screen flex flex-col items-center">
-      <!-- Video Container -->
+    <!-- Body Container --------------------------------------------------------------->
+    <div class="w-full body-container flex flex-col items-center">
+      <!-- Video Container --------------------------------------------------------------->
       <div class="video-container overflow-hidden mt-8 relative">
         <!-- Cover Image -->
         <div
@@ -118,7 +128,7 @@
         ></iframe>
       </div>
 
-      <!-- Sections -->
+      <!-- Sections --------------------------------------------------------------->
       <div
         id="about"
         class="text-white text-4xl lg:text-6xl font-bold p-6"
@@ -168,7 +178,41 @@
         </div>
       </div>
 
-      <!-- Socials -->
+      <!-- Slider --------------------------------------------------------------->
+      <div
+        id="cucumbasizer"
+        class="text-center text-2xl lg:text-4xl font-bold p-6 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500"
+      >
+        Cucumba size directly proportional to bag sige
+      </div>
+      <div
+        id="sliderContainer"
+        class="relative mx-auto max-w-md overflow-hidden"
+      >
+        <div class="flex flex-col items-center p-4">
+          <img
+            id="cucumberImage"
+            src="./images/logo.png"
+            alt="Cucumber"
+            class="w-full transition-all duration-500 ease-in-out"
+          />
+          <div class="w-full flex items-center justify-center space-x-4 mt-4">
+            <div class="text-red-400 text-xl border border-white rounded-sm p-4">fade cumba</div>
+            <input
+              type="range"
+              id="sizeSlider"
+              min="50"
+              max="150"
+              value="150"
+              class="w-4/5"
+            />
+            <div class="text-green-400 text-xl border border-white rounded-sm p-4">loaded bags</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Socials --------------------------------------------------------------->
+      <div class="flex-grow"></div>
       <div
         id="socials"
         class="p-6 bg-black w-full"
@@ -216,7 +260,30 @@
       </div>
     </div>
 
-    <!-- JavaScript -->
+    <!-- Back to Top Icon -->
+    <a
+      href="#"
+      id="backToTopBtn"
+      class="fixed bottom-4 right-4 p-4 bg-gray-500 text-black rounded-full shadow-md hover:bg-gray-700 transition-colors duration-300 opacity-0"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-3 w-3 sm:h-4 sm:w-4 md:h-6 md:w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 10l7-7m0 0l7 7m-7-7v18"
+        />
+      </svg>
+    </a>
+
+    <!-- JavaScript --------------------------------------------------------------->
+    <!-- Play video on cover click-->
     <script>
       function playVideo() {
         var player = document.getElementById("ytplayer");
@@ -226,10 +293,10 @@
       }
     </script>
 
+    <!-- Copy to clipboard-->
     <script>
       document.getElementById("copyButton").onclick = function () {
         var textToCopy = document.getElementById("textToCopy").innerText;
-
         navigator.clipboard.writeText(textToCopy).then(
           function () {
             var copiedMessage = document.getElementById("copiedMessage");
@@ -244,6 +311,33 @@
           }
         );
       };
+    </script>
+
+    <!-- Cucumba size slider-->
+    <script>
+      const cucumberImage = document.getElementById("cucumberImage");
+      const sizeSlider = document.getElementById("sizeSlider");
+      cucumberImage.style.width = sizeSlider.value - 50 + "%";
+      sizeSlider.addEventListener("input", function () {
+        const scale = this.value - 50;
+        cucumberImage.style.width = scale + "%";
+      });
+    </script>
+
+    <!-- Back to top-->
+    <script>
+      const backToTopBtn = document.getElementById("backToTopBtn");
+      window.addEventListener("scroll", () => {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+          backToTopBtn.classList.remove("opacity-0");
+        } else {
+          backToTopBtn.classList.add("opacity-0");
+        }
+      });
+      backToTopBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
     </script>
   </body>
 </html>
